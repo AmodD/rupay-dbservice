@@ -65,8 +65,6 @@ public class Application implements ApplicationRunner {
             return new Transaction(null, tupple.getT1(), tupple.getT2(), tupple.getT3());
     	});
     
-    logger.info("...here 2....");
-
     	repo.deleteAll()
                 .thenMany(customers.flatMap(c -> repo.save(c))
                         .thenMany(repo.findAll())
